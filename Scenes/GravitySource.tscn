@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/GravitySource.gd" type="Script" id=1]
+
+[node name="GravitySource" type="RigidBody2D"]
+mode = 3
+gravity_scale = 0.0
+script = ExtResource( 1 )
+

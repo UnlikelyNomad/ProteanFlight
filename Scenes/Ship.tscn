@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/GravityBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Ship.gd" type="Script" id=2]
+[ext_resource path="res://Art/Particle.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.16318, 1 )
+colors = PoolColorArray( 0.00784314, 0.341176, 1, 0.501961, 1, 0.819608, 0.168627, 0.501961, 0.360784, 0.360784, 0.360784, 0.0392157 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0.3614 ), 0.0, 3.44716, 0, 0, Vector2( 0.169971, 0.4846 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.2206 ), -2.61802, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 2.0
+flag_disable_z = true
+spread = 2.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 160.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 160.0
+scale = 2.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[node name="Ship" instance=ExtResource( 1 )]
+linear_damp = 0.0
+script = ExtResource( 2 )
+
+[node name="Exhaust" type="Particles2D" parent="." index="0"]
+position = Vector2( -24, 0 )
+rotation = -3.14159
+z_index = -1
+emitting = false
+amount = 400
+lifetime = 5.0
+visibility_rect = Rect2( -10000, -10000, 20000, 20000 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 1 )
+texture = ExtResource( 3 )
+

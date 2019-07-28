@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Art/Stars.png" type="Texture" id=1]
+[ext_resource path="res://Art/Neb Turbulent Yellow.png" type="Texture" id=2]
+[ext_resource path="res://Art/Neb Turbulent Red.png" type="Texture" id=3]
+
+[node name="Parallax" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 7680, 4320 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+centered = false
+region_rect = Rect2( 0, 0, 7680, 4320 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 7680, 4320 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+modulate = Color( 1, 1, 1, 0.313726 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 7680, 4320 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 7680, 4320 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
+modulate = Color( 1, 1, 1, 0.313726 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 0, 0, 7680, 4320 )
+
